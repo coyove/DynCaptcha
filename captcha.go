@@ -245,6 +245,21 @@ func New(seed int) ([]byte, int) {
 			tmp, newColor := g.Travel(float64(step)/float64(steps), whiteColor)
 			drawCircle(img, tmp.X, tmp.Y, g.Radius, newColor)
 		}
+
+		// for x := 0; x < w; x++ {
+		// 	for y := 0; y < h; y++ {
+		// 		if _rand.Intn(10) == 1 {
+		// 			img.Set(x, y, whiteColor)
+		// 		}
+		// 	}
+		// }
+		c := 0
+		for c < int(w*h/15) {
+			x := _rand.Intn(w)
+			y := _rand.Intn(h)
+			img.Set(x, y, whiteColor)
+			c++
+		}
 	}
 
 	images = append(images, imgFinal, imgNum)
