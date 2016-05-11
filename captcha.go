@@ -173,11 +173,15 @@ func drawCircle(img *image.Paletted, _x float64, _y float64, r float64, clr colo
 	}
 }
 
-func New() ([]byte, int) {
+func New(seed int) ([]byte, int) {
 	var w, h int = 128, 128
 	var size = 7
 	var group []traveller
-	_rand := rand.New(rand.NewSource(time.Now().UnixNano()))
+	if seed == 0 {
+		seed = int(time.Now().UnixNano())
+	}
+	_rand := rand.New(rand.NewSource(int64(seed)))
+
 	shuffle := _rand.Perm(size * size)
 	hotspot := (_rand.Intn(size-2)+1)*size + _rand.Intn(size-2) + 1
 
