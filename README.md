@@ -1,5 +1,7 @@
 # DynCaptcha
-## A simple dyanmic captcha written in Go
+## A simple dynamic captcha written in Go
+
+### Demo
 
 Find the red circle's final position.
 
